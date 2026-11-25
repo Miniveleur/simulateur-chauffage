@@ -1,0 +1,9 @@
+[project]
+name = "simulateur-chauffage"
+version = "0.1.0"
+description = "Simulation 2D du chauffage d'une pièce (vue de dessus)"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.24", "matplotlib>=3.8", "openpyxl>=3.1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

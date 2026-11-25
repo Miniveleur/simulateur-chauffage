@@ -1,0 +1,40 @@
+# Chambre type pour les premières simulations.
+# Toutes les longueurs sont en mètres.
+# Repère : x va de l'ouest (gauche) vers l'est (droite),
+#          y va du sud (bas) vers le nord (haut).
+
+nom = "Chambre type 4 m x 5 m"
+largeur = 4.0      # selon x
+profondeur = 5.0   # selon y
+hauteur = 2.5      # hauteur sous plafond
+pas = 0.2          # taille d'une maille du maillage
+
+# Mur extérieur (le seul qui perd de la chaleur) : "nord", "sud", "est" ou "ouest"
+facade = "nord"
+
+# Fenêtres sur la façade : position du début et de la fin le long du mur,
+# mesurée depuis l'ouest (façade nord ou sud) ou depuis le sud (façade est ou ouest).
+# Les pertes totales valent toujours h x S. Elles sont réparties le long de la
+# façade avec un poids 1 pour le mur et poids_fenetre devant une fenêtre
+# (ordre de grandeur : fenêtre double vitrage 1,4 W/m2.K, mur isolé 0,35 W/m2.K).
+poids_fenetre = 4.0
+
+[[fenetres]]
+debut = 1.2
+fin = 2.8
+
+# Radiateurs électriques ponctuels, position (x, y) de leur centre.
+[[radiateurs]]
+nom = "Radiateur sous la fenêtre"
+x = 2.0
+y = 4.7
+
+# Zones sans air (placard, salle de bain, mur intérieur...) : rectangles
+# définis par leur coin bas gauche (x, y), leur largeur et leur profondeur.
+# Ici, une salle de bain de 1,6 m x 1,8 m dans le coin sud-ouest, à côté de l'entrée.
+[[obstacles]]
+nom = "Salle de bain"
+x = 0.0
+y = 0.0
+largeur = 1.6
+profondeur = 1.8
